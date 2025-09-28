@@ -19,7 +19,7 @@ public class Fraction {
             throw new NullPointerException("Values should be not null");
         }
         if (den == null) {
-            throw new NullPointerException("Cannot devide zero");
+            throw new NullPointerException("Cannot divide zero");
         }
         this.num = num;
         this.den = den;
@@ -53,3 +53,12 @@ public class Fraction {
         return Objects.hash(num, den);
     }
 }
+
+// 1/2 + 2/3 = 7/6;
+// -1/2 + 2/3 = 1/6;
+// -1/2 + 1/3 = -1/6;
+
+// nul/2 + null/3 => Values should be not null
+// 1/0 + 2/3 => Cannot divide zero
+// Integer.MAX_VALUE/2 +1/2 => Integer.MIN_VALUE
+// Common denominator is too big!
