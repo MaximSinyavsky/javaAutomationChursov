@@ -1,5 +1,7 @@
 package test.company;
 
+import java.util.Objects;
+
 public class Fraction {
     Integer num;
     Integer den;
@@ -43,11 +45,11 @@ public class Fraction {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Fraction fraction = (Fraction) o;
-        return Object.equals(num, fraction.num) && Object.equals(den, fraction.den);
+        return Objects.equals(num, fraction.num) && Objects.equals(den, fraction.den);
     }
 
     @Override
     public int hashCode() {
-        return Object.hash(num, den);
+        return Objects.hash(num, den);
     }
 }
