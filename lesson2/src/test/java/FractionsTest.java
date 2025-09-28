@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class FractionsTest {
     @Test
     @Tag("Smoke")
-    @DisplayName("Сложение дувх положительных чисел")
+    @DisplayName("Сложение двух положительных чисел")
     void simpleFractionTest() {
         Fraction first = new Fraction(1, 2);
         Fraction second = new Fraction(2, 3);
@@ -38,7 +38,15 @@ public class FractionsTest {
     }
 
     @Test
-    @Tag("Negatrive")
+    @Tag("Negative")
+    @DisplayName("Нулевой знаменатель")
+    void zeroDumFractionTest(){
+        assertThrows(ArithmeticException.class, ()-> new Fraction(1,0),
+                "Должно быть выброшено исключение ArithmeticException");
+    }
+
+    @Test
+    @Tag("Negative")
     @DisplayName("Не заполнены числитель и знаменатель")
     void nullFractionTest() {
         assertThrows(NullPointerException.class, () -> new Fraction(null, null),
