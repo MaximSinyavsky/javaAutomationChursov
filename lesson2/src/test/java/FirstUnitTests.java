@@ -37,12 +37,23 @@ public class FirstUnitTests {
     }
 
     @Test
-    void assertsALLTest(){
+    void assertsAllTest(){
         User user = new User ("John", "Doe", 30);
         assertAll(
                 ()-> assertEquals("John", user.getFirstName(), "Неправильное имя"),
                 ()->assertEquals("Doe", user.getSecondName(), "Неправильная фамилия"),
                 ()->assertEquals(30, user.getAge(), "Неправильный возраст")
+
+        );
+    }
+
+    @Test
+    void assertsAllSeparated(){
+        User user = new User ("John", "Doe", 30);
+        assertAll(
+                ()-> assertEquals("John1", user.getFirstName(), "Неправильное имя"),
+                ()->assertEquals("Doe2", user.getSecondName(), "Неправильная фамилия"),
+                ()->assertEquals(31, user.getAge(), "Неправильный возраст")
 
         );
     }
