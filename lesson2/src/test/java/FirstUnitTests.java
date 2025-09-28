@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import test.company.User;
+import dto.User;
 
 import static org.junit.jupiter.api.Assertions.*;
 

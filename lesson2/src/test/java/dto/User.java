@@ -1,4 +1,4 @@
-package test.company;
+package dto;
 
 public class User {
     String firstName;

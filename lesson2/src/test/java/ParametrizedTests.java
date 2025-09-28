@@ -30,8 +30,8 @@ public class ParametrizedTests {
     static Stream<String> provideParameters(){return Stream.of("One", "Two", "Three");}
     @ParameterizedTest
     @MethodSource("provideParameters")
-    void customParametersTest(String  parameters){
+    void customParametersTest(String  parameter){
         List<String> expectedList = Arrays.asList("one", "two", "three");
-        assertTrue(expectedList.contains(parameters.toLowerCase(Locale.ROOT)));
+        assertTrue(expectedList.contains(parameter.toLowerCase(Locale.ROOT)));
     }
 }
