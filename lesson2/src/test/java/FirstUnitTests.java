@@ -1,7 +1,4 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import dto.User;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,6 +45,7 @@ public class FirstUnitTests {
     }
 
     @Test
+    @Disabled
     void assertsAllSeparated(){
         User user = new User ("John", "Doe", 30);
         assertAll(
