@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -5,6 +6,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,5 +32,6 @@ public class ParametrizedTests {
     @MethodSource("provideParameters")
     void customParametersTest(String  parameters){
         List<String> expectedList = Arrays.asList("one", "two", "three");
+        assertTrue(expectedList.contains(parameters.toLowerCase(Locale.ROOT)));
     }
 }
