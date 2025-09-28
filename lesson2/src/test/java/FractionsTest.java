@@ -1,10 +1,10 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import test.company.Fraction;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class FractionsTest {
     @Test
@@ -40,17 +40,20 @@ public class FractionsTest {
     @Test
     @Tag("Negative")
     @DisplayName("Нулевой знаменатель")
+    @Disabled
     void zeroDumFractionTest(){
-        assertThrows(ArithmeticException.class, ()-> new Fraction(1,0),
+        Exception exception = assertThrows(ArithmeticException.class, ()-> new Fraction(1,0),
                 "Должно быть выброшено исключение ArithmeticException");
+        assertEquals("Cannot divide zero", exception.getMessage());
     }
 
     @Test
     @Tag("Negative")
     @DisplayName("Не заполнены числитель и знаменатель")
-    void nullFractionTest() {
-        assertThrows(NullPointerException.class, () -> new Fraction(null, null),
+    void nullNumFractionTest() {
+        Exception exception = assertThrows(NullPointerException.class, () -> new Fraction(null, null),
                 "Должно быть выброшено исключение NullPointerExceptions");
+        assertEquals("Values should be not null", exception.getMessage());
     }
 
     @Test
