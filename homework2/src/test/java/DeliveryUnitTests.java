@@ -23,7 +23,7 @@ public class DeliveryUnitTests {
     @Tag("Unit")
     @DisplayName("Проверка расчёта стоимости доставки")
     void deliveryCostTest() {
-        assertEquals(1120.0, delivery.deliveryCost(28, "большие", true, "очень высокая загруженность"),
+        assertEquals(840.0, delivery.deliveryCost(28, "большие", true, "повышенная загруженность"),
                 "Несоответствие стоимости доставки");
     }
 
@@ -56,35 +56,46 @@ public class DeliveryUnitTests {
     @ParameterizedTest
     @Tag("Unit")
     @DisplayName("Проверка изменения стоимости доставки в зависимости от габаритов")
-    @CsvSource({"большие, 200","маленькие, 100"})
-    void dimensionDeliveryCostTest(String dimension, int expectedCost){
+    @CsvSource({"большие, 200", "маленькие, 100"})
+    void dimensionDeliveryCostTest(String dimension, int expectedCost) {
         assertEquals(expectedCost, delivery.dimensionDeliveryCost(dimension),
                 "Несоответствие стоимости доставки для габарита");
     }
+
     @Test
     @Tag("Unit")
     @DisplayName("Проверка исключения IllegalArgumentException при некорректном значении")
-    void unknownDimensionDeliveryCostTest(){
+    void unknownDimensionDeliveryCostTest() {
         String dimension = "HelloWorld";
-        Exception exception = assertThrows(IllegalArgumentException.class, ()->delivery.dimensionDeliveryCost(dimension),
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> delivery.dimensionDeliveryCost(dimension),
                 "Должно быть выброшено исключение IllegalArgumentException");
         assertEquals("Неизвестные габариты: " + dimension, exception.getMessage());
     }
+
     @Test
     @Tag("Unit")
 //    @Disabled
     @DisplayName("Проверка ")
-    void nullDimensionDeliveryCostTest(){
+    void nullDimensionDeliveryCostTest() {
         String dimension = null;
-        Exception exception = assertThrows(IllegalArgumentException.class, ()->delivery.dimensionDeliveryCost(dimension),
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> delivery.dimensionDeliveryCost(dimension),
                 "Должно быть выброшено исключение IllegalArgumentException");
         assertEquals("Неизвестные габариты: " + dimension, exception.getMessage());
     }
+
     @ParameterizedTest
     @Tag("Unit")
     @DisplayName("Проверка коэффициента в зависимости от загруженности")
     @CsvFileSource(resources = "/test-data/workload_coefficient_cases.csv", numLinesToSkip = 1)
-    void workLoadCoefficientTest(String workLoad, double expectedCoefficient){
+    void workLoadCoefficientTest(String workLoad, double expectedCoefficient) {
+        System.out.println("Testing workLoad: " + workLoad + ", expected: " + expectedCoefficient);
         assertEquals(expectedCoefficient, delivery.workLoadCoefficient(workLoad));
+    }
+
+    @Test
+    @Tag("Unit")
+    @DisplayName("Проверка коэффициента для null - ожидается 1.0")
+    void workLoadCoefficientNullTest() {
+        assertEquals(1.0, delivery.workLoadCoefficient(null));
     }
 }
