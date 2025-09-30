@@ -1,3 +1,6 @@
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -10,7 +13,8 @@ import test.company.Delivery;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-
+@Feature("Домашнее задание №2")
+@Story("Расчёт стоимости доставки")
 public class DeliveryUnitTests {
     private Delivery delivery;
 
@@ -20,6 +24,7 @@ public class DeliveryUnitTests {
     }
 
     @Test
+    @Owner("Maxim Sinyavsky")
     @Tag("Unit")
     @DisplayName("Проверка расчёта стоимости доставки")
     void deliveryCostTest() {
@@ -28,6 +33,7 @@ public class DeliveryUnitTests {
     }
 
     @Test
+    @Owner("Maxim Sinyavsky")
     @Tag("Unit")
     @DisplayName("Проверка минимальной стоимости доставки")
     void minDeliverySumTest() {
@@ -36,6 +42,7 @@ public class DeliveryUnitTests {
     }
 
     @Test
+    @Owner("Maxim Sinyavsky")
     @Tag("Unit")
     @DisplayName("Проверка исключения IllegalArgumentException")
     void deliveryCostExceptionTest() {
@@ -45,6 +52,7 @@ public class DeliveryUnitTests {
     }
 
     @ParameterizedTest
+    @Owner("Maxim Sinyavsky")
     @Tag("Unit")
     @DisplayName("Проверка изменения стоимости доставки в зависимости от стоимости")
     @CsvFileSource(resources = "/test-data/delivery-distance-data.csv", numLinesToSkip = 1)
@@ -54,6 +62,7 @@ public class DeliveryUnitTests {
     }
 
     @ParameterizedTest
+    @Owner("Maxim Sinyavsky")
     @Tag("Unit")
     @DisplayName("Проверка изменения стоимости доставки в зависимости от габаритов")
     @CsvSource({"большие, 200", "маленькие, 100"})
@@ -63,6 +72,7 @@ public class DeliveryUnitTests {
     }
 
     @Test
+    @Owner("Maxim Sinyavsky")
     @Tag("Unit")
     @DisplayName("Проверка исключения IllegalArgumentException при некорректном значении")
     void unknownDimensionDeliveryCostTest() {
@@ -73,9 +83,9 @@ public class DeliveryUnitTests {
     }
 
     @Test
+    @Owner("Maxim Sinyavsky")
     @Tag("Unit")
-//    @Disabled
-    @DisplayName("Проверка ")
+    @DisplayName("Проверка исключения IllegalArgumentException при null значении")
     void nullDimensionDeliveryCostTest() {
         String dimension = null;
         Exception exception = assertThrows(IllegalArgumentException.class, () -> delivery.dimensionDeliveryCost(dimension),
@@ -84,6 +94,7 @@ public class DeliveryUnitTests {
     }
 
     @ParameterizedTest
+    @Owner("Maxim Sinyavsky")
     @Tag("Unit")
     @DisplayName("Проверка коэффициента в зависимости от загруженности")
     @CsvFileSource(resources = "/test-data/workload_coefficient_cases.csv", numLinesToSkip = 1)
@@ -93,6 +104,7 @@ public class DeliveryUnitTests {
     }
 
     @Test
+    @Owner("Maxim Sinyavsky")
     @Tag("Unit")
     @DisplayName("Проверка коэффициента для null - ожидается 1.0")
     void workLoadCoefficientNullTest() {
