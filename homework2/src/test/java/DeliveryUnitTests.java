@@ -1,6 +1,7 @@
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
+import jdk.jfr.Description;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -26,6 +27,7 @@ public class DeliveryUnitTests {
     @Test
     @Owner("Maxim Sinyavsky")
     @Tag("Unit")
+    @Description("Проверка метода deliveryCost")
     @DisplayName("Проверка расчёта стоимости доставки")
     void deliveryCostTest() {
         assertEquals(840.0, delivery.deliveryCost(28, "большие", true, "повышенная загруженность"),
@@ -35,6 +37,7 @@ public class DeliveryUnitTests {
     @Test
     @Owner("Maxim Sinyavsky")
     @Tag("Unit")
+    @Description("Проверка метода deliveryCost")
     @DisplayName("Проверка минимальной стоимости доставки")
     void minDeliverySumTest() {
         assertEquals(400, delivery.deliveryCost(2, "маленькие", false, "повышенная загруженность"),
@@ -44,6 +47,7 @@ public class DeliveryUnitTests {
     @Test
     @Owner("Maxim Sinyavsky")
     @Tag("Unit")
+    @Description("Проверка исключения метода deliveryCost")
     @DisplayName("Проверка исключения IllegalArgumentException")
     void deliveryCostExceptionTest() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> delivery.deliveryCost(31, "большие", true, "очень высокая загруженность"),
@@ -54,6 +58,7 @@ public class DeliveryUnitTests {
     @ParameterizedTest
     @Owner("Maxim Sinyavsky")
     @Tag("Unit")
+    @Description("Проверка ветвления и граничных значений метода distanceDeliveryCost")
     @DisplayName("Проверка изменения стоимости доставки в зависимости от стоимости")
     @CsvFileSource(resources = "/test-data/delivery-distance-data.csv", numLinesToSkip = 1)
     void distanceDeliveryCostTest(double distance, int expectedCost) {
@@ -64,6 +69,7 @@ public class DeliveryUnitTests {
     @ParameterizedTest
     @Owner("Maxim Sinyavsky")
     @Tag("Unit")
+    @Description("Проверка ветвления метода dimensionDeliveryCost")
     @DisplayName("Проверка изменения стоимости доставки в зависимости от габаритов")
     @CsvSource({"большие, 200", "маленькие, 100"})
     void dimensionDeliveryCostTest(String dimension, int expectedCost) {
@@ -74,6 +80,7 @@ public class DeliveryUnitTests {
     @Test
     @Owner("Maxim Sinyavsky")
     @Tag("Unit")
+    @Description("Проверка исключения метода dimensionDeliveryCost")
     @DisplayName("Проверка исключения IllegalArgumentException при некорректном значении")
     void unknownDimensionDeliveryCostTest() {
         String dimension = "HelloWorld";
@@ -85,6 +92,7 @@ public class DeliveryUnitTests {
     @Test
     @Owner("Maxim Sinyavsky")
     @Tag("Unit")
+    @Description("Проверка метода dimensionDeliveryCost на null значение")
     @DisplayName("Проверка исключения IllegalArgumentException при null значении")
     void nullDimensionDeliveryCostTest() {
         String dimension = null;
@@ -96,6 +104,7 @@ public class DeliveryUnitTests {
     @ParameterizedTest
     @Owner("Maxim Sinyavsky")
     @Tag("Unit")
+    @Description("Проверка ветвления метода workLoadCoefficient")
     @DisplayName("Проверка коэффициента в зависимости от загруженности")
     @CsvFileSource(resources = "/test-data/workload_coefficient_cases.csv", numLinesToSkip = 1)
     void workLoadCoefficientTest(String workLoad, double expectedCoefficient) {
@@ -106,6 +115,7 @@ public class DeliveryUnitTests {
     @Test
     @Owner("Maxim Sinyavsky")
     @Tag("Unit")
+    @Description("Проверка метода workLoadCoefficient на null значение")
     @DisplayName("Проверка коэффициента для null - ожидается 1.0")
     void workLoadCoefficientNullTest() {
         assertEquals(1.0, delivery.workLoadCoefficient(null));
