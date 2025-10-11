@@ -1,0 +1,27 @@
+chapterName, buttonName, titleName, linkUrl
+Chapter 3. WebDriver Fundamentals, Web form, Web form, web-form.html
+Chapter 3. WebDriver Fundamentals, Navigation, Navigation, navigation1.html
+Chapter 3. WebDriver Fundamentals, Dropdown menu, dropdown-menu.html
+Chapter 3. WebDriver Fundamentals, Mouse over, Mouse over, mouse-over.html
+Chapter 3. WebDriver Fundamentals, Drag and drop, Drag and drop, drag-and-drop.html
+Chapter 3. WebDriver Fundamentals, Draw in canvas, Draw in canvas, draw-in-canvas.html
+Chapter 3. WebDriver Fundamentals, Loading images, Loading images, loading-images.html
+Chapter 3. WebDriver Fundamentals, Slow calculator, Slow calculator, slow-calculator.html
+Chapter 4. Browser-Agnostic Features, Long page, Long page, long-page.html
+Chapter 4. Browser-Agnostic Features, Infinite scroll, Infinite scroll, infinite-scroll.html
+Chapter 4. Browser-Agnostic Features, Shadow DOM, Shadow DOM, shadow-dom.html
+Chapter 4. Browser-Agnostic Features, Cookies, Cookies, cookies.html
+Chapter 4. Browser-Agnostic Features, IFrames, IFrames, iframes.html
+Chapter 4. Browser-Agnostic Features, Dialog boxes, Dialog boxes, dialog-boxes.html
+Chapter 4. Browser-Agnostic Features, Web storage, Web storage, web-storage.html
+Chapter 5. Browser-Specific Manipulation, Geolocation, Geolocation, geolocation.html
+Chapter 5. Browser-Specific Manipulation, Notifications, Notifications, notifications.html
+Chapter 5. Browser-Specific Manipulation, Get user media, Get user media, get-user-media.html
+Chapter 5. Browser-Specific Manipulation, Multilanguage, Multilanguage, multilanguage.html
+Chapter 5. Browser-Specific Manipulation, Console logs, Console logs, console-logs.html
+Chapter 7. The Page Object Model (POM), Login form, Login form, login-form.html
+Chapter 7. The Page Object Model (POM), Slow login, Slow login, login-slow.html
+Chapter 8. Testing Framework Specifics, Random calculator, Random calculator, random-calculator.html
+Chapter 9. Third-Party Integrations, Download files, Download files, download.html
+Chapter 9. Third-Party Integrations, A/B Testing, A/B Testing, ab-testing.html
+Chapter 9. Third-Party Integrations, Data types, Data types, data-types.html
