@@ -4,3 +4,5 @@
 ### 2. Проверьте, что все ссылки для Chapter 3-9 доступны и при нажатии открывается соответствующая страница
 ### 3. Проверьте заголовок страницы и url
 ### 4. Проверьте, что все ссылки принадлежат определенному Chapter, например, WebForm в Chapter 3. WebDriver Fundamentals
+
+![allure](https://github.com/MaximSinyavsky/javaAutomationChursov/blob/main/homework4/assets/allure.jpg)

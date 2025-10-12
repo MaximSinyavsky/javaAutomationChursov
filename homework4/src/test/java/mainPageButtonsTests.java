@@ -1,4 +1,5 @@
 import io.qameta.allure.Owner;
+import jdk.jfr.Name;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
@@ -31,11 +32,24 @@ public class mainPageButtonsTests {
     @Owner("Maxim Sinyavsky")
     @Tag("Smoke")
     @CsvFileSource(resources = "/test-data/mainPageButtonsData.csv", numLinesToSkip = 1)
+    @Name("Check ")
+
     void mainPageLinkTest(
-            String chapterName, String buttonName, String titleName,  String linkUrl
+            String chapterName, String buttonName, String titleName, String linkUrl, Boolean isFrame
     ) {
-        String url = BASE_URL + linkUrl;
-        WebElement button = driver.findElement(By.xpath("//h5[text() = '"+ chapterName+"']/../a[@href = '"+linkUrl+"' and text() = '"+titleName+"']"));
-        button.click();
+        String expectedUrl = BASE_URL + linkUrl;
+        WebElement chapterSection = driver.findElement(By.xpath("//div[h5[text() = '" + chapterName + "']]"));
+        assertEquals(chapterName, chapterSection.findElement(By.tagName("h5")).getText(), "The chapter name must be: " + chapterName);
+
+        WebElement chapterButton = chapterSection.findElement(By.linkText(buttonName));
+        chapterButton.click();
+        assertEquals(expectedUrl, driver.getCurrentUrl(), "The URL must be: " + expectedUrl);
+
+        if (isFrame) {
+            driver.switchTo().frame("frame-header");
+        }
+
+        WebElement actualTitle = driver.findElement(By.className("display-6"));
+        assertEquals(titleName, actualTitle.getText(), "The title must be " + titleName);
     }
 }
