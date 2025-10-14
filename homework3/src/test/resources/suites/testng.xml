@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="All Test Suite" parallel="tests" thread-count="5">
+    <test name="Smoke Tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+                <exclude name="regress"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="SimpleTestNGTests"/>
+        </classes>
+    </test>
+    <test name="Parametrized Tests">
+        <classes>
+            <class name="ParametrizedTests"/>
+        </classes>
+    </test>
+</suite>
