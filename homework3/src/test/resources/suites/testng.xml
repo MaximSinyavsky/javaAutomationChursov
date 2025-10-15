@@ -8,12 +8,14 @@
             </run>
         </groups>
         <classes>
-            <class name="SimpleTestNGTests"/>
+            <class name="FractionUnitTests"/>
+            <class name="DeliveryUnitTests"/>
         </classes>
     </test>
     <test name="Parametrized Tests">
         <classes>
-            <class name="ParametrizedTests"/>
+            <class name="FractionUnitTests"/>
+            <class name="DeliveryUnitTests"/>
         </classes>
     </test>
 </suite>

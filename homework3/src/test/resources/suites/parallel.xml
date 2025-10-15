@@ -2,7 +2,8 @@
 <suite name="ParallelTests">
     <test name="Parallel Test Suite" parallel="methods" thread-count="5">
         <classes>
-            <class name="ParallelTestNGTests"/>
+            <class name="DeliveryUnitTests"/>
+            <class name="FractionUnitTests"/>
         </classes>
     </test>
 </suite>

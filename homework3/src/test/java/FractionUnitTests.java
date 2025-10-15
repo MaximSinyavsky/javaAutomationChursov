@@ -3,7 +3,6 @@ import org.testng.annotations.Test;
 import test.company.Fraction;
 
 import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.expectThrows;
 
 public class FractionUnitTests {
 
@@ -41,4 +40,6 @@ public class FractionUnitTests {
     void constructorDenZeroTest() {
         new Fraction(10, 0);
     }
+
+
 }
