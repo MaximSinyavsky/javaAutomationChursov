@@ -1,6 +1,7 @@
 package testdata;
 
 import org.testng.annotations.DataProvider;
+import test.company.Fraction;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -64,6 +65,15 @@ public class MyDataProvider {
         return new Object[][]{
                 {"большие", 200},
                 {"маленькие", 100}
+        };
+    }
+
+    @DataProvider(name = "sumData")
+    public Object[][] sumData() {
+        return new Object[][] {
+                {new Fraction(1, 2), new Fraction(1, 3), new Fraction(5, 6)},
+                {new Fraction(2, 5), new Fraction(3, 5), new Fraction(25, 25)},
+                {new Fraction(-1, 2), new Fraction(1, 2), new Fraction(0, 4)}
         };
     }
 }
